@@ -36,6 +36,9 @@ const main = async () => {
     });
 
 
+    const { data: projects } = await octokit.projects;
+
+    core.debug(projects)
     /**
      * Contains the sum of all the additions, deletions, and changes
      * in all the files in the Pull Request.
@@ -64,7 +67,7 @@ const main = async () => {
        * Add labels according to file types.
        */
       const fileExtension = file.filename.split('.').pop();
-      switch(fileExtension) {
+      switch (fileExtension) {
         case 'md':
           await octokit.rest.issues.addLabels({
             owner,
