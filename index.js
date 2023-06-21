@@ -36,9 +36,6 @@ const main = async () => {
     });
 
 
-    const { data: projects } = await octokit.projects;
-
-    core.debug(projects)
     /**
      * Contains the sum of all the additions, deletions, and changes
      * in all the files in the Pull Request.
